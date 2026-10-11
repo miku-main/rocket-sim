@@ -10,9 +10,9 @@ const G: float = 9.81
 # --- Rocket state (changes every step) ---
 var altitude: float = 0.0		# m, height above the launch pad
 var velocity: float = 0.0		# m/s, positive = up, negative = down
-var acceleration: float =0.0	# m/s^2, saved so we cam display and graph it
+var acceleration: float = 0.0	# m/s^2, saved so we cam display and graph it
 var t: float = 0.0				# s, time since launch
-
+var max_altitude: float = 0.0	# m, highest point reached (apogee)
 # --- Flight status ---
 var has_lifted_off: bool = false	# true once the rocket leaves the pad
 var has_landed: bool = false		# true once it comes back down
@@ -51,6 +51,7 @@ func step(dt: float) -> void:
 	# 3. Update velocity first, then use the New velocity for altitude.
 	velocity += acceleration * dt
 	altitude += velocity * dt
+	max_altitude = maxf(max_altitude, altitude)
 	
 	# 4. Move the clock forward
 	t += dt
