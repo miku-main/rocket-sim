@@ -18,7 +18,7 @@ and we'll validate it against OpenRocket and a real model rocket launch.
 
 ## Status
 
-Phase 0: project setup and learning Godot.
+Phase 0: project setup, learning Godot, and testing.
 
 ## How to run
 1. Install Godot 4 (standard version).
