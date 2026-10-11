@@ -25,3 +25,8 @@ func test_full_flight_lands():
 	assert_true(sim.has_landed, "Rocket should land")
 	assert_eq(sim.altitude, 0.0, "Altitude should be 0 after landing")
 	assert_almost_eq(sim.landing_time, 9.67, 0.05, "Should land after about 9.67 s")
+
+func test_apogee():
+	var sim := RocketSim.new()
+	sim.run_until_finished(0.001)
+	assert_almost_eq(sim.max_altitude, 102.4, 0.5, "Apogee should be about 102.4 m")
